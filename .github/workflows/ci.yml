@@ -13,8 +13,8 @@ jobs:
       - uses: asdf-vm/actions/install@v1.0.1
       - run: |
           export GOVERSION=$(cat .tool-versions | grep 'golang ' | awk '{print $2}')
-          echo "::set-env name=GOROOT::/home/runner/.asdf/installs/golang/$GOVERSION/go/"
-          echo "::set-env name=GOTOOLDIR::/home/runner/.asdf/installs/golang/$GOVERSION/go/pkg/tool/linux_amd64"
+          echo "GOROOT=$HOME/.asdf/installs/golang/$GOVERSION/go/" >> $GITHUB_ENV
+          echo "GOTOOLDIR=$HOME/.asdf/installs/golang/$GOVERSION/go/pkg/tool/linux_amd64" >> $GITHUB_ENV
 
       # Check go vendor cache
       - name: Cache go dependencies
