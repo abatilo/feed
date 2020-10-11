@@ -20,17 +20,17 @@ on:
 jobs:
   automerge:
     runs-on: ubuntu-latest
-    if: contains(github.event.pull_request.labels.*.name, 'automerge') || contains(github.event.pull_request.labels.*.name, 'autosquash')
+    if: contains(github.event.pull_request.labels.*.name, 'autosquash')
     steps:
       - name: automerge
         uses: "pascalgn/automerge-action@c9bd182"
         env:
           GITHUB_TOKEN: "${{ secrets.PAT }}"
-          MERGE_METHOD_LABELS: "automerge=merge,autosquash=squash"
+          MERGE_METHOD_LABELS: "autosquash=squash"
           MERGE_COMMIT_MESSAGE: "pull-request-title"
-          MERGE_METHOD: "merge"
+          MERGE_METHOD: "squash"
           MERGE_FORKS: "true"
           MERGE_RETRIES: "50"
           MERGE_RETRY_SLEEP: "10000" # ten seconds
-          UPDATE_LABELS: "automerge,autosquash"
-          UPDATE_METHOD: "merge"
+          UPDATE_LABELS: "autosquash"
+          UPDATE_METHOD: "squash"
