@@ -45,7 +45,7 @@ build: dist/feed ## Build the binary
 
 .PHONY: test
 test: dist/feed ## Run tests
-	go test -coverprofile=coverage.txt -covermode=atomic -coverpkg ./... ./...
+	go test -race -covermode=atomic -coverpkg ./... ./...
 
 .PHONY: run
 run: build ## Run the binary

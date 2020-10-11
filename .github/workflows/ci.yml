@@ -10,9 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-
-      - name: asdf_install
-        uses: asdf-vm/actions/install@v1.0.1
+      - uses: asdf-vm/actions/install@v1.0.1
 
       # Check go vendor cache
       - name: Cache go dependencies
