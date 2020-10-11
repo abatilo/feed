@@ -31,8 +31,8 @@ dist/feed: tmp/bootstrap go.mod go.sum
 
 .PHONY: build
 build: dist/feed ## Build the binary
+	docker build -t $(PROJECT_NAME) -f build/Dockerfile .
 
 .PHONY: run
-run: ## Run the binary
-	@-go mod vendor
-	go run main.go
+run: build ## Run the binary
+	docker run --rm -it $(PROJECT_NAME)

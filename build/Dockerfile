@@ -1,8 +1,13 @@
-FROM golang:1.15-alpine as builder
+FROM golang:1.15 as builder
 
 WORKDIR /app
 COPY go.mod go.sum vendor ./
+
+COPY internal ./internal
+
 COPY main.go ./
+
+RUN go test -race ./...
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go install -ldflags="-w -s" main.go
 
 FROM gcr.io/distroless/base:nonroot
