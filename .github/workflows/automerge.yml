@@ -20,11 +20,9 @@ on:
 jobs:
   automerge:
     runs-on: ubuntu-latest
+    if: github.actor == 'abatilo' || github.actor == 'dependabot'
     steps:
-      - run: |
-          echo ${{ github.actor }}
       - name: automerge
-        if: github.actor == 'abatilo' || github.actor == 'dependabot'
         uses: "pascalgn/automerge-action@v0.12.0"
         env:
           GITHUB_TOKEN: "${{ secrets.PAT }}"
