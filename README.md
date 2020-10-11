@@ -1,6 +1,6 @@
 # feed
 
-![Publish Docker image](https://github.com/abatilo/feed/workflows/Publish%20Docker%20image/badge.svg)
+![Build](https://github.com/abatilo/feed/workflows/Build/badge.svg)
 
 My own personally aggregated feed of things on the internet to read. I do too
 much work checking multiple different lists of things, so I just wanted to make
