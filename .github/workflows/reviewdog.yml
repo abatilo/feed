@@ -1,5 +1,6 @@
+---
 name: Run reviewdog
-on:
+"on":
   push:
     branches:
       - main
