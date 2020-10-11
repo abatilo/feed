@@ -1,10 +1,10 @@
 FROM golang:1.15 as builder
 
 WORKDIR /app
-COPY go.mod go.sum vendor ./
+COPY go.mod go.sum ./
+COPY vendor ./vendor
 
 COPY internal ./internal
-
 COPY main.go ./
 
 RUN go test -race ./...

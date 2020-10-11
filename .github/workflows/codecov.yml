@@ -1,0 +1,23 @@
+name: Upload test coverage
+on: push
+
+jobs:
+  codecov:
+    name: codecov
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: asdf_install
+        uses: asdf-vm/actions/install@v1.0.1
+
+      - name: Generate coverage report
+        run: |
+          go test -coverprofile=coverage.txt -covermode=atomic -coverpkg ./... ./...
+
+      - name: Upload coverage report
+        uses: codecov/codecov-action@v1.0.2
+        with:
+          token: ${{ secrets.CODECOV }}
+          file: ./coverage.txt
+          flags: unittests
+          name: codecov-umbrella
