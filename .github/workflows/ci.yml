@@ -10,9 +10,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-
-      - name: asdf_install
-        uses: asdf-vm/actions/install@v1.0.1
+      - uses: asdf-vm/actions/install@v1.0.1
+      - run: |
+          export GOVERSION=$(cat .tool-versions | grep 'golang ' | awk '{print $2}')
+          echo "::set-env name=GOROOT::/home/runner/.asdf/installs/golang/$GOVERSION/go/"
+          echo "::set-env name=GOTOOLDIR::/home/runner/.asdf/installs/golang/$GOVERSION/go/pkg/tool/linux_amd64"
 
       # Check go vendor cache
       - name: Cache go dependencies
@@ -27,6 +29,18 @@ jobs:
         if: steps.cache-vendor.outputs.cache-hit != 'true'
         run: |
           go mod vendor
+
+      # Collect coverage
+      - name: Generate coverage report
+        run: |
+          go test -race -coverprofile=coverage.txt -covermode=atomic -coverpkg ./... ./...
+      - name: Upload coverage report
+        uses: codecov/codecov-action@v1.0.2
+        with:
+          token: ${{ secrets.CODECOV }}
+          file: ./coverage.txt
+          flags: unittests
+          name: codecov-umbrella
 
       # Check Docker image cache
       - name: Cache Docker layers
