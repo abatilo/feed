@@ -21,7 +21,7 @@ on:
 jobs:
   automerge:
     runs-on: ubuntu-latest
-    if: github.actor == 'abatilo' || github.actor == 'dependabot'
+    if: github.actor == 'abatilo' || github.actor == 'dependabot[bot]'
     steps:
       - name: automerge
         uses: "pascalgn/automerge-action@v0.12.0"
