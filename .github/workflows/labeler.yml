@@ -1,5 +1,6 @@
+---
 name: Label PRs
-on:
+"on":
   - pull_request_target
 
 jobs:

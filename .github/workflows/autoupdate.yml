@@ -1,5 +1,6 @@
+---
 name: Update PRs
-on:
+"on":
   push:
     branches:
       - main
