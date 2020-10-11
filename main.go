@@ -20,6 +20,6 @@ func main() {
 			description: hnItem.Title,
 			url:         hnItem.Url,
 		}
-		log.Printf("%#v\n", item)
+		log.Printf("Testing: %#v\n", item)
 	}
 }
