@@ -33,5 +33,6 @@ dist/feed: tmp/bootstrap go.mod go.sum
 build: dist/feed ## Build the binary
 
 .PHONY: run
-run: build ## Run the binary
-	./dist/feed
+run: ## Run the binary
+	@-go mod vendor
+	go run main.go
