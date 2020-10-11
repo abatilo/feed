@@ -7,6 +7,11 @@ jobs:
   label:
     runs-on: ubuntu-latest
     steps:
+      - id: generate_token
+        uses: tibdex/github-app-token@v1
+        with:
+          app_id: ${{ secrets.BOT_APP_ID }}
+          private_key: ${{ secrets.BOT_PRIVATE_KEY }}
       - uses: actions/labeler@v2
         with:
-          repo-token: "${{ secrets.PAT }}"
+          repo-token: "${{ steps.generate_token.outputs.token }}"
