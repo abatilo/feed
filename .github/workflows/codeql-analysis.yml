@@ -8,7 +8,7 @@ name: Run CodeQL
     branches: [main]
 
 jobs:
-  analyze:
+  codeql:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
