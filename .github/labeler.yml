@@ -1,2 +1,3 @@
-autosquash:
+automerge:
   - "**"
+  - "**/*.go"

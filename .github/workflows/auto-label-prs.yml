@@ -1,7 +1,6 @@
-# Auto label all PRs so that they can be autosquashed
 name: Auto label Pull Requests
 on:
-  - pull_request
+  - pull_request_target
 
 jobs:
   label:
