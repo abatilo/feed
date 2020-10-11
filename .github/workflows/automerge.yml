@@ -19,6 +19,7 @@ on:
   status: {}
 jobs:
   automerge:
+    if: github.actor == 'abatilo' || github.actor == 'dependabot'
     runs-on: ubuntu-latest
     steps:
       - name: automerge
