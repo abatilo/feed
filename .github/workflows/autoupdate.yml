@@ -1,4 +1,4 @@
-name: autoupdate branch
+name: Update PRs
 on:
   push:
     branches:

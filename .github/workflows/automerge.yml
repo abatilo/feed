@@ -1,4 +1,4 @@
-name: automerge
+name: Merge ready PRs
 on:
   pull_request:
     types:
@@ -19,8 +19,8 @@ on:
   status: {}
 jobs:
   automerge:
-    if: github.actor == 'abatilo' || github.actor == 'dependabot'
     runs-on: ubuntu-latest
+    if: github.actor == 'abatilo' || github.actor == 'dependabot'
     steps:
       - name: automerge
         uses: "pascalgn/automerge-action@v0.12.0"
