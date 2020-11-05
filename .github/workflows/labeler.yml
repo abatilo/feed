@@ -12,6 +12,6 @@ jobs:
         with:
           app_id: ${{ secrets.BOT_APP_ID }}
           private_key: ${{ secrets.BOT_PRIVATE_KEY }}
-      - uses: actions/labeler@v2
+      - uses: actions/labeler@v3
         with:
           repo-token: "${{ steps.generate_token.outputs.token }}"
