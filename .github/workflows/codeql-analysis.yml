@@ -16,7 +16,7 @@ jobs:
           # We must fetch at least the immediate parents so that if this is
           # a pull request then we can checkout the head.
           fetch-depth: 2
-      - uses: asdf-vm/actions/install@v1.0.1
+      - uses: asdf-vm/actions/install@v1.1.0
       - name: Override host Go installation
         run: |
           export GOVERSION=$(cat .tool-versions | grep 'golang ' | awk '{print $2}')
