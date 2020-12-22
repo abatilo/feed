@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: asdf-vm/actions/install@v1.0.1
+      - uses: asdf-vm/actions/install@v1.1.0
       - name: Override host Go installation
         run: |
           export GOVERSION=$(cat .tool-versions | grep 'golang ' | awk '{print $2}')
