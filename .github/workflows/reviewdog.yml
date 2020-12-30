@@ -18,7 +18,7 @@ jobs:
           cond: ${{ github.event_name == 'pull_request' }}
           if_true: "github-pr-check"
           if_false: "github-check"
-      - uses: reviewdog/action-golangci-lint@v1.14
+      - uses: reviewdog/action-golangci-lint@v1.15
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           reporter: ${{ steps.reporter.outputs.value }}
