@@ -1,6 +1,0 @@
----
-automerge:
-  - "**/*.go"
-  - "**/*.yaml"
-  - "**/*.yml"
-  - ".github/**"
